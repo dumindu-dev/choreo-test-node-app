@@ -14,8 +14,6 @@ var connection = mysql.createConnection({
 connection.connect();
 
 app.get('/', (req, res) => {
-    res.send('Hello World! '+ process.env.HOST);
-    
     connection.query('SELECT name from users', function (error, results, fields) {
         if (error) throw error;
         console.log('The solution is: ', results[0].name);
